@@ -1,0 +1,15 @@
+- platform: kodi
+  host: 192.168.100.135
+
+- platform: spotify
+  client_id: 31673037200443da90314ae3c93d6295
+  client_secret: 6b81f65107c04660a1375571b2a805d8
+  cache_path: /home/homeassistant/.homeassistant/media_player/.spotify-token-cache
+
+- platform: onkyo
+  host: 192.168.100.141
+  name: Onkyo
+  sources:
+    video3: 'Game'
+    video6: 'PC'
+    usb: 'Net'

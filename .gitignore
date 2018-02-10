@@ -1,0 +1,29 @@
+# Can't show secrets
+secrets.yaml
+
+# Or devices..
+known_devices.yaml
+
+# but .gitignore is ok
+!.gitignore
+
+# No logs
+*.log
+OZW_Log.txt
+
+# No Z-Wave configs
+*.xml
+ozw_config
+
+# Database files
+home-assistant_v2.db
+pyozw.sqlite
+
+# Other
+media_player/.spotify-token-cache
+custom_components/__pycache__
+.HA_VERSION
+.uuid
+tts
+www
+

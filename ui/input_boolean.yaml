@@ -1,0 +1,8 @@
+wakeup:
+  name: Enable wakeup light 
+  initial: on
+  icon: mdi:power
+wakeup_weekends:
+  name: Wake up on weekends
+  initial: off
+  icon: mdi:power

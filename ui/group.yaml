@@ -1,0 +1,197 @@
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+  - device_tracker.lex_iphone
+  - sensor.time
+  - sensor.yr_temperature
+  - sensor.yr_symbol
+  - alarm_control_panel.ha_alarm
+  - group.living_room
+  - group.blinds
+  - group.kitchen
+  - group.bathroom
+  - group.hallway
+  - group.drumroom
+  - group.bedroom
+  - group.basement
+  - group.wakeuplight
+  - vacuum.roomba
+
+living_room:
+  entities:
+  - light.woonkamer_spots
+  - light.hue_hanglamp
+  - light.hue_go
+  name: Woonkamer
+  view: false
+
+blinds:
+  entities:
+  - cover.tv
+  - cover.computer
+  name: Rolluiken
+  view: false
+
+kitchen:
+  entities:
+  - binary_sensor.fibaro_sensor_sensor
+  - switch.keuken_1_switch
+  - switch.keuken_2_switch
+  name: Keuken
+  view: false
+
+bathroom:
+  entities:
+  - switch.badkamer_switch
+  name: Badkamer
+  view: false
+
+drumroom:
+  entities:
+  - switch.drumhok_switch
+  name: Drumhok
+  view: false
+
+bedroom:
+  entities:
+  - switch.slaapkamer_switch_2
+  - light.hue_go_1
+  - light.hue_go_2
+  name: Slaapkamer
+  view: false
+
+hallway:
+  entities:
+  - binary_sensor.voordeur_sensor
+  - switch.hal_switch
+  name: Hal
+  view: false
+
+basement:
+  entities:
+  - sensor.kelder_temperature
+  - sensor.kelder_motion
+  - sensor.kelder_light
+  - light.hue_lightstrip
+  name: Kelder
+  view: false
+
+wakeuplight:
+  name: Wakeup light
+  control: hidden
+  entities:
+    - sensor.wakeup_alarm_time
+    - sensor.wakeup_start_time_lights
+    - sensor.wakeup_fadein_duration
+    - input_number.wakeup_hour
+    - input_number.wakeup_minutes
+    - input_number.wakeup_duration
+    - input_boolean.wakeup
+    - input_boolean.wakeup_weekends
+
+dashboard_view:
+  view: true
+  icon: mdi:cube-outline
+  entities:
+  - group.woonkamer_scenes
+
+woonkamer_scenes:
+  name: Woonkamer
+  view: false
+  control: hidden
+  entities:
+  - scene.verlichting__woonkamer__uit
+  - scene.verlichting__woonkamer__gedimd
+  - scene.verlichting__woonkamer__daantje
+  - scene.verlichting__woonkamer__normaal
+  - scene.verlichting__woonkamer__feest
+
+infrastructure_view:
+  view: true
+  icon: mdi:server-network
+  entities:
+  - group.qnap
+  - group.transmission
+#  - group.snmp_monitor
+
+#snmp_monitor:
+#  name: Bandwith Monitoring
+#  view: no
+#  entities:
+#    - sensor.internet_speed_in
+#    - sensor.internet_speed_out
+#    - sensor.wan_traffic_in_mean
+#    - sensor.wan_traffic_out_mean
+
+qnap:
+  name: QNAP
+  view: false
+  control: hidden
+  entities:
+    - sensor.netapp_status
+    - sensor.netapp_system_temperature
+    - sensor.netapp_cpu_usage
+    - sensor.netapp_network_link_eth0
+    - sensor.netapp_network_link_eth1
+    - sensor.netapp_network_up_eth0
+    - sensor.netapp_network_up_eth1
+    - sensor.netapp_network_down_eth0
+    - sensor.netapp_network_down_eth1
+    - sensor.netapp_used_space_datavol1
+
+transmission:
+  name: Transmission
+  view: false
+  control: hidden
+  entities:
+    - sensor.transmission_active_torrents
+    - sensor.transmission_down_spee
+    - sensor.transmission_status
+    - sensor.transmission_up_speed
+
+media_view:
+  view: True
+  icon: mdi:music
+  entities:
+  - media_player.onkyo
+  - media_player.kodi
+  - media_player.spotify
+
+volkswagen_view:
+    view: True
+    icon: mdi:car
+    entities:
+    - group.volkswagen_switches
+    - group.volkswagen_sensors
+    - group.volkswagen_location
+
+volkswagen_switches:
+    name: Volkswagen Switches
+    control: hidden
+    entities:
+    - switch.vw_wvwzzzauzgw806000_charge
+    - switch.vw_wvwzzzauzgw806000_climat
+    - switch.vw_wvwzzzauzgw806000_melt
+  
+volkswagen_sensors:
+    name: Volkswagen Information
+    control: hidden
+    entities:
+    - sensor.vw_wvwzzzauzgw806000_battery
+    - sensor.vw_wvwzzzauzgw806000_charge_max_ampere
+    - sensor.vw_wvwzzzauzgw806000_charging_time_left
+    - sensor.vw_wvwzzzauzgw806000_climat_target_temperature
+    - sensor.vw_wvwzzzauzgw806000_distance
+    - sensor.vw_wvwzzzauzgw806000_electric_range_left
+    - sensor.vw_wvwzzzauzgw806000_last_connected
+    - sensor.vw_wvwzzzauzgw806000_next_service_inspection
+    - binary_sensor.vw_wvwzzzauzgw806000_door_locked
+    - binary_sensor.vw_wvwzzzauzgw806000_parking_lights
+    - binary_sensor.vw_wvwzzzauzgw806000_external_power_connected
+        
+volkswagen_location:
+    name: Volkswagen Location
+    control: hidden
+    entities:
+    - device_tracker.vw_wvwzzzauzgw806000

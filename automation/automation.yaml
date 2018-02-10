@@ -1,0 +1,191 @@
+- alias: 'Set theme at startup'
+  initial_state: 'on'
+  trigger:
+   - platform: homeassistant
+     event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: dark
+
+- alias: 'Rolluiken open'
+  hide_entity: True
+  trigger:
+    platform: sun
+    event: sunrise
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: armed_home
+      - condition: state
+        entity_id: alarm_control_panel.ha_alarm
+        state: disarmed
+  action:
+    service: cover.open_cover
+    entity_id: group.all_covers
+
+- alias: 'Rolluiken dicht'
+  hide_entity: True
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '00:30:00'
+  action:
+    service: cover.close_cover
+    entity_id: group.all_covers
+
+- alias: 'Welcome home (dark)'
+  hide_entity: True
+  trigger:
+   - platform: state
+     entity_id: alarm_control_panel.ha_alarm
+     to: 'disarmed'
+  condition:
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer
+        brightness_pct: 40
+        profile: 'relax'
+
+- alias: 'Welcome home (light)'
+  hide_entity: True
+  trigger:
+   - platform: state
+     entity_id: alarm_control_panel.ha_alarm
+     to: 'disarmed'
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunrise
+      - condition: sun
+        before: sunset
+  action:
+    - service: cover.open_cover
+      entity_id: group.all_covers
+
+- alias: 'Frontdoor opens (dark)'
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voordeur_sensor
+    from: 'off'
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: sun
+        after: sunset
+      - condition: sun
+        before: sunrise
+  action:
+    - service: switch.turn_on
+      entity_id: switch.hal_switch
+
+- alias: 'Update notifications'
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    service: telegram_bot.send_message
+    data:
+      message: 'Home Assistant  {{ states.updater.updater.state }}  is now available.'
+
+- alias: 'wake up bedroom'
+  hide_entity: True
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.lex_iphone
+        state: home
+      - condition: state
+        entity_id: input_boolean.wakeup
+        state: 'on'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.wakeup_weekends
+            state: 'on'
+          - condition: time
+            weekday:
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.hue_go_1, light.hue_go_2
+      profile: relax
+    data_template:
+      transition: '{{ states.input_number.wakeup_duration.state | multiply(60) | float }}'
+
+- alias: 'lights on in kitchen'
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_sensor_sensor
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: device_tracker.lex_iphone
+        state: 'home'
+      - condition: state
+        entity_id: sensor.fibaro_sensor_luminance
+        state: '0.0'
+  action:
+    service: switch.turn_on
+    entity_id: switch.keuken_2_switch
+
+- alias: 'lights off in kitchen'
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.fibaro_sensor_sensor
+    to: 'off'
+  condition:
+    condition: state
+    entity_id: device_tracker.lex_iphone
+    state: 'home'
+  action:
+    service: switch.turn_off
+    entity_id: switch.keuken_2_switch
+
+- id: snmp_monitor_traffic_in
+  alias: Monitor Traffic In
+  trigger:
+    platform: state
+    entity_id: sensor.snmp_wan_in
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.internet_traffic_delta_in
+        value: '{{ ((trigger.to_state.state | int - trigger.from_state.state | int) * 8 ) / ( as_timestamp(trigger.to_state.last_updated) - as_timestamp(trigger.from_state.last_updated) ) }}'
+  
+- id: snmp_monitor_traffic_out
+  alias: Monitor Traffic Out
+  trigger:
+    platform: state
+    entity_id: sensor.snmp_wan_out
+  action:
+    - service: input_number.set_value
+      data_template:
+        entity_id: input_number.internet_traffic_delta_out
+        value: '{{ ((trigger.to_state.state | int - trigger.from_state.state | int) * 8 ) / ( as_timestamp(trigger.to_state.last_updated) - as_timestamp(trigger.from_state.last_updated) ) }}'

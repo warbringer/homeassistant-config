@@ -1,0 +1,142 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 23
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  customize: !include ui/customize.yaml
+
+zone:
+  name: Home
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  radius: 100
+  icon: mdi:home
+
+zone 2:
+  name: Office
+  latitude: !secret office_latitude
+  longitude: !secret office_longitude
+  radius: 250
+  icon: mdi:domain
+
+# Enable iOS interface
+ios:
+
+# Enables the frontend
+frontend:
+  themes:
+    dark:
+      primary-color: '#36454f'
+
+# Enables configuration UI
+config:
+
+zeroconf:
+
+http:
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+
+# Checks for available updates
+updater:
+
+# Discover some devices automatically
+discovery:
+  ignore:
+    - samsung_tv
+    - plex_mediaserver
+    - google_cast
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Text to speech
+tts:
+  platform: google
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_secret
+
+rfxtrx:
+  device: /dev/ttyUSB-RFX433e
+
+light:
+  platform: hue
+  host: 192.168.100.128
+  allow_hue_groups: true
+
+vacuum:
+  - platform: roomba
+    host: 192.168.100.165
+    username: !secret roomba_username
+    password: !secret roomba_password
+
+cover:
+  platform: rfxtrx
+  automatic_add: False
+  signal_repetitions: 2
+  devices:
+    071a000000000701: # RFY
+      name: Computer
+    071a000000000702: # RFY
+      name: TV
+
+zwave:
+  usb_path: /dev/ttyUSB-ZStick-5G
+  new_entity_ids: true
+
+alarm_control_panel:
+  - platform: manual_mqtt
+    state_topic: home/alarm
+    command_topic: home/alarm/set
+    disarm_after_trigger: false
+    code: !secret alarmpanel_code
+    disarmed:
+      trigger_time: 0
+    armed_away:
+      pending_time: 30
+      delay_time: 15
+    armed_home:
+      pending_time: 0
+      delay_time: 0
+    triggered:
+      pending_time: 0
+
+volkswagen_carnet:
+    username: !secret vw_carnet_username
+    password: !secret vw_carnet_password
+    update_interval: 
+        minutes: 3
+
+# Include
+media_player: !include media_player/media_player.yaml
+group: !include ui/group.yaml
+input_number: !include ui/input_number.yaml
+input_boolean: !include ui/input_boolean.yaml
+mqtt: !include mqtt/mqtt.yaml
+notify: !include notify/telegram.yaml
+telegram_bot: !include notify/telegram_bot.yaml
+scene: !include scenes.yaml
+
+# Dir merge list
+automation: !include_dir_merge_list automation/
+device_tracker: !include_dir_merge_list device_tracker/
+sensor: !include_dir_merge_list sensor/

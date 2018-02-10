@@ -1,0 +1,107 @@
+- alias: 'Telegram bot test'
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/test'
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: 'Test started'
+    - service: light.turn_on
+      data:
+        entity_id: group.living_room
+        profile: relax
+        transition: 1
+        flash: short
+
+- alias: 'telegram command: close shutters'
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/shutters'
+        args:
+          - 'close'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/shutters'
+        args:
+          - 'down'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/rolluiken'
+        args:
+          - 'omlaag'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/rolluiken'
+        args:
+          - 'dicht'
+  action:
+    - service: cover.close_cover
+      entity_id: group.all_covers
+    - service: telegram_bot.send_message
+      data:
+        message: 'Closing shutters...'
+
+- alias: 'telegram command: open shutters'
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/shutters'
+        args:
+          - 'open'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/shutters'
+        args:
+          - 'up'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/rolluiken'
+        args:
+          - 'omlaag'
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/rolluiken'
+        args:
+          - 'open'
+  action:
+    - service: cover.open_cover
+      entity_id: group.all_covers
+    - service: telegram_bot.send_message
+      data:
+        message: 'Opening shutters...'
+
+
+- alias: 'Show alarm status'
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/alarm'
+        args:
+          - 'status'
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: >
+          {% if is_state("alarm_control_panel.ha_alarm", "armed_away") -%}
+          Alarm is set to *Armed Away*
+          {%- elif is_state("alarm_control_panel.ha_alarm", "armed_home")  -%}
+          Alarm is set to *Armed Home*
+          {%- else -%}
+          Alarm is set to *{{ states('alarm_control_panel.ha_alarm') }}*
+          {%- endif %}

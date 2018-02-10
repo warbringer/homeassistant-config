@@ -1,0 +1,17 @@
+- platform: rest
+  resource: http://192.168.100.128/api/TplWLSf2gnVv1Pv7PrBa-Cjj20shCx5gWP4keJbu/sensors/8
+  value_template: '{{ value_json.state.lightlevel }}'
+  unit_of_measurement: Lux
+  name: 'Kelder light'
+  
+- platform: rest
+  resource: http://192.168.100.128/api/TplWLSf2gnVv1Pv7PrBa-Cjj20shCx5gWP4keJbu/sensors/6
+  value_template: '{{ value_json.state.temperature | float / 100 }}'
+  unit_of_measurement: °C
+  name: 'Kelder temperature'
+
+- platform: rest
+  resource: http://192.168.100.128/api/TplWLSf2gnVv1Pv7PrBa-Cjj20shCx5gWP4keJbu/sensors/7
+  value_template: '{{ value_json.state.presence }}'
+  scan_interval: 2
+  name: 'Kelder Motion'

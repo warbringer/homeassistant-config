@@ -1,0 +1,349 @@
+################################################################
+## Customize
+################################################################
+
+################################################################
+## Scenes
+################################################################
+
+################################################################
+## Roomba 
+################################################################
+vacuum.roomba:
+  homebridge_visible: true
+
+################################################################
+## Scenes 
+################################################################
+scene.verlichting__woonkamer__uit:
+  friendly_name: "verlichting - uit"
+scene.verlichting__woonkamer__gedimd:
+  friendly_name: "verlichting - gedimd"
+scene.verlichting__woonkamer__daantje:
+  friendly_name: "verlichting - Daantje"
+scene.verlichting__woonkamer__normaal:
+  friendly_name: "verlichting - normaal"
+scene.verlichting__woonkamer__feest:
+  friendly_name: "verlichting - feest"
+
+################################################################
+## SNMP bandwidth monitoring 
+################################################################
+sensor.download_speed_mean:
+  friendly_name: 'SNMP Download Average'
+  icon: mdi:speedometer
+sensor.upload_speed_mean:
+  friendly_name: 'SNMP Upload Average'
+  icon: mdi:speedometer
+sensor.ping_time_mean:
+  friendly_name: 'SNMP Ping Average'
+  icon: mdi:clock-fast
+sensor.wan_traffic_in_mean:
+  friendly_name: 'WAN Download Average'
+  icon: mdi:download
+sensor.wan_traffic_out_mean:
+  friendly_name: 'WAN Upload Average'
+  icon: mdi:upload
+
+################################################################
+## Rollershutters 
+################################################################
+cover.computer:
+  homebridge_cover_type: rollershutter
+  homebridge_visible: true
+cover.tv:
+  homebridge_cover_type: rollershutter
+  homebridge_visible: true
+
+################################################################
+## yr weather information
+################################################################
+sensor.yr_humidity:
+  hidden: true
+sensor.yr_symbol:
+  friendly_name: Weather
+sensor.yr_temperature:
+  friendly_name: Outside
+  homebridge_visible: true
+
+################################################################
+## Apple device information
+################################################################
+sensor.lexs_iphone_battery_level:
+  hidden: true
+sensor.lexs_iphone_battery_state:
+  hidden: true
+sensor.lexs_ipad_battery_level:
+  hidden: true
+sensor.lexs_ipad_battery_state:
+  hidden: true
+
+################################################################
+## Nest Protect v2
+################################################################
+sensor.kitchen_nest_protect_battery_health:
+  hidden: true
+sensor.kitchen_nest_protect_co_status:
+  hidden: true
+sensor.kitchen_nest_protect_smoke_status:
+  hidden: true
+binary_sensor.kitchen_nest_protect_online:
+  hidden: true
+
+################################################################
+## Philips Hue
+################################################################
+light.all_hue_lights:
+  hidden: true
+light.hue_color_spot_1:
+  hidden: true
+light.hue_color_spot_2:
+  hidden: true
+light.hue_color_spot_3:
+  hidden: true
+light.hue_color_spot_4:
+  hidden: true
+light.hue_color_spot_5:
+  hidden: true
+light.hue_color_spot_6:
+  hidden: true
+light.hue_color_spot_7:
+  hidden: true
+light.badkamer:
+  hidden: true
+light.drumhok:
+  hidden: true
+light.hal:
+  hidden: true
+light.buiten:
+  hidden: true
+light.kelder:
+  hidden: true
+light.keuken:
+  hidden: true
+light.woonkamer:
+  hidden: true
+light.slaapkamer:
+  hidden: true
+
+################################################################
+## Badkamer schakelaar
+################################################################
+switch.badkamer_switch:
+  friendly_name: 'Badkamer'
+  icon: mdi:lightbulb
+  homebridge_visible: true
+sensor.badkamer_alarm_level:
+  hidden: true
+sensor.badkamer_alarm_type:
+  hidden: true
+sensor.badkamer_energy:
+  hidden: true
+sensor.badkamer_exporting:
+  hidden: true
+sensor.badkamer_heat:
+  hidden: true
+sensor.badkamer_power:
+  hidden: true
+sensor.badkamer_power_management:
+  hidden: true
+sensor.badkamer_sourcenodeid:
+  hidden: true
+switch.badkamer_switch_2:
+  hidden: true
+
+################################################################
+## Drumhok schakelaar
+################################################################
+switch.drumhok_switch:
+  friendly_name: 'Drumhok'
+  icon: mdi:lightbulb
+  homebridge_visible: true
+sensor.drumhok_alarm_level:
+  hidden: true
+sensor.drumhok_alarm_type:
+  hidden: true
+sensor.drumhok_energy:
+  hidden: true
+sensor.drumhok_exporting:
+  hidden: true
+sensor.drumhok_heat:
+  hidden: true
+sensor.drumhok_power:
+  hidden: true
+sensor.drumhok_power_management:
+  hidden: true
+sensor.drumhok_sourcenodeid:
+  hidden: true
+switch.drumhok_switch_2:
+  hidden: true
+
+################################################################
+## Hal schakelaar
+################################################################
+switch.hal_switch:
+  friendly_name: 'Hal'
+  icon: mdi:lightbulb
+  homebridge_visible: true
+switch.hal_switch_2:
+  hidden: true
+
+################################################################
+## Keuken #1 schakelaar
+################################################################
+switch.keuken_1_switch:
+  friendly_name: 'Eettafel'
+  icon: mdi:lightbulb
+  homebridge_visible: true
+switch.keuken_1_switch_2:
+  hidden: true
+
+################################################################
+## Keuken #2 schakelaar
+################################################################
+switch.keuken_2_switch:
+  friendly_name: 'Fornuis'
+  icon: mdi:lightbulb
+  homebridge_visible: true
+switch.keuken_2_switch_2:
+  hidden: true
+sensor.keuken_2_alarm_level:
+  hidden: true
+sensor.keuken_2_alarm_type:
+  hidden: true
+sensor.keuken_2_energy:
+  hidden: true
+sensor.keuken_2_exporting:
+  hidden: true
+sensor.keuken_2_heat:
+  hidden: true
+sensor.keuken_2_power:
+  hidden: true
+sensor.keuken_2_power_management:
+  hidden: true
+sensor.keuken_2_sourcenodeid:
+  hidden: true
+
+################################################################
+## Slaapkamer schakelaar
+################################################################
+switch.slaapkamer_switch_2:
+  friendly_name: 'Slaapkamer'
+  icon: mdi:lightbulb
+  homebridge_visible: true
+sensor.slaapkamer_alarm_level:
+  hidden: true
+sensor.slaapkamer_alarm_type:
+  hidden: true
+sensor.slaapkamer_energy:
+  hidden: true
+sensor.slaapkamer_energy_2:
+  hidden: true
+sensor.slaapkamer_exporting:
+  hidden: true
+sensor.slaapkamer_exporting_2:
+  hidden: true
+sensor.slaapkamer_heat:
+  hidden: true
+sensor.slaapkamer_power:
+  hidden: true
+sensor.slaapkamer_power_2:
+  hidden: true
+sensor.slaapkamer_power_management:
+  hidden: true
+sensor.slaapkamer_sourcenodeid:
+  hidden: true
+switch.slaapkamer_switch:
+  hidden: true
+
+################################################################
+## Fibaro eye sensor
+################################################################
+binary_sensor.voordeur_sensor:
+  friendly_name: Voordeur
+  device_class: opening
+  homebridge_visible: true
+  icon: mdi:door
+sensor.voordeur_alarm_level:
+  hidden: true
+sensor.voordeur_alarm_type:
+  hidden: true
+
+################################################################
+## Fibaro eye sensor
+################################################################
+binary_sensor.fibaro_sensor_sensor:
+  friendly_name : Keuken
+  device_class: motion
+sensor.fibaro_sensor_alarm_level:
+  hidden: true
+sensor.fibaro_sensor_alarm_type:
+  hidden: true
+sensor.fibaro_sensor_burglar:
+  hidden: true
+sensor.fibaro_sensor_general:
+  hidden: true
+sensor.fibaro_sensor_luminance:
+  hidden: true
+sensor.fibaro_sensor_seismic_intensity:
+  hidden: true
+sensor.fibaro_sensor_sourcenodeid:
+  hidden: true
+sensor.fibaro_sensor_temperature:
+  hidden: true
+
+################################################################
+## Fibaro eye sensor
+################################################################
+switch.vw_wvwzzzauzgw806000_charge:
+    friendly_name: VW Car Charging
+switch.vw_wvwzzzauzgw806000_climat:
+    friendly_name: VW Car Climatisation
+switch.vw_wvwzzzauzgw806000_melt:
+    friendly_name: VW Car Window Heating
+device_tracker.vw_carid:
+    friendly_name: VW Car Location
+sensor.vw_wvwzzzauzgw806000_battery:
+    friendly_name: VW Car Battery
+sensor.vw_wvwzzzauzgw806000_charge_max_ampere:
+    friendly_name: VW Car Max Ampere
+sensor.vw_wvwzzzauzgw806000_charging_time_left:
+    friendly_name: VW Car Charging time left
+sensor.vw_wvwzzzauzgw806000_climat_target_temperature:
+    friendly_name: VW Car Climatisation Target Temperature
+sensor.vw_wvwzzzauzgw806000_distance:
+    friendly_name: VW Car Odometer
+sensor.vw_wvwzzzauzgw806000_electric_range_left:
+    friendly_name: VW Car Electric Range Left
+sensor.vw_wvwzzzauzgw806000_last_connected:
+    friendly_name: VW Car Last Connected
+sensor.vw_wvwzzzauzgw806000_next_service_inspection:
+    friendly_name: VW Car Next Service
+binary_sensor.vw_wvwzzzauzgw806000_door_locked:
+    friendly_name: VW Car Doors
+binary_sensor.vw_wvwzzzauzgw806000_parking_lights:
+    friendly_name: VW Car Parking Lights
+binary_sensor.vw_wvwzzzauzgw806000_external_power_connected:
+    friendly_name: VW Car External Power Connected
+
+################################################################
+## Zwave panel
+################################################################
+zwave.aeotec_zw090_zstick_gen5_eu:
+  hidden: true
+zwave.badkamer:
+  hidden: true
+zwave.drumhok:
+  hidden: true
+zwave.hal:
+  hidden: true
+zwave.keuken_1:
+  hidden: true
+zwave.keuken_2:
+  hidden: true
+zwave.slaapkamer:
+  hidden: true
+zwave.voordeur:
+  hidden: true
+zwave.fibaro_sensor:
+  hidden: true

@@ -1,0 +1,100 @@
+- alias: 'Trigger alarm while armed home'
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: binary_sensor.voordeur_sensor
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_home
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.ha_alarm
+
+- alias: 'Trigger alarm while armed away'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.fibaro_sensor_sensor
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.voordeur_sensor
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm
+
+- alias: 'Armed home ingeschakeld'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'armed_home'
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: 'Armed Home ingeschakeld'
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_go_1, light.hue_go_2
+        brightness_pct: 30
+        profile: relax
+
+- alias: 'Alarm away ingeschakeld'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'armed_away'
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: 'Armed Away ingeschakeld'
+    - delay: '00:00:30'
+    - service: cover.close_cover
+      entity_id: group.all_covers
+    - service: switch.turn_off
+      entity_id: group.all_switches
+    - service: light.turn_off
+      entity_id: group.all_lights
+
+- alias: 'Alarm uitgeschakeld'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'disarmed'
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: 'Alarm is uitgeschakeld'
+
+- alias: 'Alarm triggered'
+  hide_entity: True
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.ha_alarm
+      to: 'triggered'
+  action:
+    - service: telegram_bot.send_message
+      data:
+        message: 'Alarm is afgegaan!'
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer
+        color_name: 'red'
+        brightness_pct: 100
+    - service: light.turn_on
+      data:
+        entity_id: light.woonkamer
+        flash: long
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_go_1, light.hue_go_2
+        brightness_pct: 100
+        profile: relax

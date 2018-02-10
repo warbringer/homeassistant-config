@@ -1,0 +1,36 @@
+- name: Verlichting - Woonkamer - Normaal
+  entities:
+    light.woonkamer:
+      state: on
+      transition: 2
+      brightness: 150
+      xy_color: [ 0.4448, 0.4066 ]
+
+- name: Verlichting - Woonkamer - gedimd
+  entities:
+    light.woonkamer:
+      state: on
+      transition: 2
+      brightness: 75
+      xy_color: [ 0.5926, 0.3814 ]
+
+- name: Verlichting - Woonkamer - uit
+  entities:
+    light.woonkamer:
+      state: off
+      transition: 2
+
+- name: Verlichting - Woonkamer - Daantje
+  entities:
+    light.woonkamer:
+      state: on
+      profile: relax
+      brightness_pct: 30
+      transition: 2
+
+- name: Verlichting - Woonkamer - Feest
+  entities:
+    light.woonkamer:
+      state: on
+      color_name: white
+      effect: colorloop
