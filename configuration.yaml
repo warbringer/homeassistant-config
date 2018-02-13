@@ -61,6 +61,19 @@ conversation:
 # Enables support for tracking state changes over time.
 history:
 
+recorder:
+  purge_keep_days: 5
+  purge_interval: 1
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sun.sun
+      - sensor.last_boot
+      - sensor.date
+
 # View all events in a logbook
 logbook:
 
