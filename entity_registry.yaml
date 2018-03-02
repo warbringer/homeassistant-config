@@ -1,0 +1,219 @@
+binary_sensor.fibaro_sensor_sensor:
+  platform: zwave
+  unique_id: 2-72057594076463104
+sensor.fibaro_sensor_temperature:
+  platform: zwave
+  unique_id: 2-72057594076479506
+sensor.fibaro_sensor_luminance:
+  platform: zwave
+  unique_id: 2-72057594076479538
+sensor.fibaro_sensor_seismic_intensity:
+  platform: zwave
+  unique_id: 2-72057594076479890
+sensor.fibaro_sensor_alarm_type:
+  platform: zwave
+  unique_id: 2-72057594077528065
+sensor.fibaro_sensor_alarm_level:
+  platform: zwave
+  unique_id: 2-72057594077528081
+sensor.fibaro_sensor_sourcenodeid:
+  platform: zwave
+  unique_id: 2-72057594077528097
+sensor.fibaro_sensor_burglar:
+  platform: zwave
+  unique_id: 2-72057594077528225
+sensor.fibaro_sensor_general:
+  platform: zwave
+  unique_id: 2-72057594078232577
+switch.keuken_2_switch:
+  platform: zwave
+  unique_id: 3-72057594093060096
+switch.keuken_2_switch_2:
+  platform: zwave
+  unique_id: 3-144115188130988032
+sensor.keuken_2_energy:
+  platform: zwave
+  unique_id: 3-72057594093273090
+sensor.keuken_2_power:
+  platform: zwave
+  unique_id: 3-72057594093273218
+sensor.keuken_2_exporting:
+  platform: zwave
+  unique_id: 3-72057594093273600
+sensor.keuken_2_alarm_type:
+  platform: zwave
+  unique_id: 3-72057594094305281
+sensor.keuken_2_alarm_level:
+  platform: zwave
+  unique_id: 3-72057594094305297
+sensor.keuken_2_sourcenodeid:
+  platform: zwave
+  unique_id: 3-72057594094305313
+sensor.keuken_2_heat:
+  platform: zwave
+  unique_id: 3-72057594094305393
+sensor.keuken_2_power_management:
+  platform: zwave
+  unique_id: 3-72057594094305457
+switch.hal_switch:
+  platform: zwave
+  unique_id: 4-72057594109837312
+switch.hal_switch_2:
+  platform: zwave
+  unique_id: 4-144115188147765248
+switch.badkamer_switch:
+  platform: zwave
+  unique_id: 6-72057594143391744
+switch.badkamer_switch_2:
+  platform: zwave
+  unique_id: 6-144115188181319680
+sensor.badkamer_energy:
+  platform: zwave
+  unique_id: 6-72057594143604738
+sensor.badkamer_power:
+  platform: zwave
+  unique_id: 6-72057594143604866
+sensor.badkamer_exporting:
+  platform: zwave
+  unique_id: 6-72057594143605248
+sensor.badkamer_alarm_type:
+  platform: zwave
+  unique_id: 6-72057594144636929
+sensor.badkamer_alarm_level:
+  platform: zwave
+  unique_id: 6-72057594144636945
+sensor.badkamer_sourcenodeid:
+  platform: zwave
+  unique_id: 6-72057594144636961
+sensor.badkamer_heat:
+  platform: zwave
+  unique_id: 6-72057594144637041
+sensor.badkamer_power_management:
+  platform: zwave
+  unique_id: 6-72057594144637105
+switch.drumhok_switch:
+  platform: zwave
+  unique_id: 7-72057594160168960
+switch.drumhok_switch_2:
+  platform: zwave
+  unique_id: 7-144115188198096896
+sensor.drumhok_energy:
+  platform: zwave
+  unique_id: 7-72057594160381954
+sensor.drumhok_previous_reading:
+  platform: zwave
+  unique_id: 7-72057594160381970
+sensor.drumhok_interval:
+  platform: zwave
+  unique_id: 7-72057594160381987
+sensor.drumhok_power:
+  platform: zwave
+  unique_id: 7-72057594160382082
+sensor.drumhok_previous_reading_2:
+  platform: zwave
+  unique_id: 7-72057594160382098
+sensor.drumhok_interval_2:
+  platform: zwave
+  unique_id: 7-72057594160382115
+sensor.drumhok_exporting:
+  platform: zwave
+  unique_id: 7-72057594160382464
+sensor.drumhok_alarm_type:
+  platform: zwave
+  unique_id: 7-72057594161414145
+sensor.drumhok_alarm_level:
+  platform: zwave
+  unique_id: 7-72057594161414161
+sensor.drumhok_sourcenodeid:
+  platform: zwave
+  unique_id: 7-72057594161414177
+sensor.drumhok_heat:
+  platform: zwave
+  unique_id: 7-72057594161414257
+sensor.drumhok_power_management:
+  platform: zwave
+  unique_id: 7-72057594161414321
+switch.slaapkamer_switch:
+  platform: zwave
+  unique_id: 8-72057594176946176
+switch.slaapkamer_switch_2:
+  platform: zwave
+  unique_id: 8-144115188214874112
+sensor.slaapkamer_energy:
+  platform: zwave
+  unique_id: 8-72057594177159170
+sensor.slaapkamer_energy_2:
+  platform: zwave
+  unique_id: 8-144115188215087106
+sensor.slaapkamer_power:
+  platform: zwave
+  unique_id: 8-72057594177159298
+sensor.slaapkamer_exporting:
+  platform: zwave
+  unique_id: 8-72057594177159680
+sensor.slaapkamer_power_2:
+  platform: zwave
+  unique_id: 8-144115188215087234
+sensor.slaapkamer_exporting_2:
+  platform: zwave
+  unique_id: 8-144115188215087616
+sensor.slaapkamer_alarm_type:
+  platform: zwave
+  unique_id: 8-72057594178191361
+sensor.slaapkamer_alarm_level:
+  platform: zwave
+  unique_id: 8-72057594178191377
+sensor.slaapkamer_sourcenodeid:
+  platform: zwave
+  unique_id: 8-72057594178191393
+sensor.slaapkamer_heat:
+  platform: zwave
+  unique_id: 8-72057594178191473
+sensor.slaapkamer_power_management:
+  platform: zwave
+  unique_id: 8-72057594178191537
+switch.keuken_1_switch:
+  platform: zwave
+  unique_id: 9-72057594193723392
+switch.keuken_1_switch_2:
+  platform: zwave
+  unique_id: 9-144115188231651328
+binary_sensor.voordeur_sensor:
+  platform: zwave
+  unique_id: 10-72057594210680832
+light.hue_color_spot_1:
+  platform: hue
+  unique_id: 00:17:88:01:02:23:19:1b-0b
+light.hue_go_1:
+  platform: hue
+  unique_id: 00:17:88:01:01:19:0a:81-0b
+light.hue_hanglamp:
+  platform: hue
+  unique_id: 00:17:88:01:02:3c:14:53-0b
+light.hue_color_spot_5:
+  platform: hue
+  unique_id: 00:17:88:01:02:23:13:b8-0b
+light.hue_color_spot_4:
+  platform: hue
+  unique_id: 00:17:88:01:02:23:07:7b-0b
+light.hue_color_spot_3:
+  platform: hue
+  unique_id: 00:17:88:01:02:23:1c:6f-0b
+light.hue_go:
+  platform: hue
+  unique_id: 00:17:88:01:01:18:55:f6-0b
+light.hue_color_spot_6:
+  platform: hue
+  unique_id: 00:17:88:01:02:23:22:48-0b
+light.hue_go_2:
+  platform: hue
+  unique_id: 00:17:88:01:01:19:4a:6a-0b
+light.hue_color_spot_7:
+  platform: hue
+  unique_id: 00:17:88:01:02:23:30:26-0b
+light.hue_lightstrip:
+  platform: hue
+  unique_id: 00:17:88:01:02:ac:81:8f-0b
+light.hue_color_spot_2:
+  platform: hue
+  unique_id: 00:17:88:01:02:23:29:90-0b

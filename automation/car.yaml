@@ -1,4 +1,4 @@
-- alias: 'telegram command: open shutters'
+- alias: 'telegram command: check car charge'
   hide_entity: True
   trigger:
     - platform: event
