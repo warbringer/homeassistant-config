@@ -1,0 +1,24 @@
+- alias: 'telegram command: open shutters'
+  hide_entity: True
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/car'
+        args:
+          - 'charge'
+  action:
+    service: telegram_bot.send_message
+    data:
+      message: Car is charged to {{ states('sensor.wvwzzzauzgw806000_battery_level') }}%
+
+- alias: 'car is fully charged'
+  hide_entity: True
+  trigger:
+    platform: numeric_state
+    entity_id: switch.wvwzzzauzgw806000_battery_level
+    above: 99
+  action:
+    service: telegram_bot.send_message
+    data:
+      message: 'Car is fully charged.'

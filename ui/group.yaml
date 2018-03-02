@@ -170,28 +170,32 @@ volkswagen_switches:
     name: Volkswagen Switches
     control: hidden
     entities:
-    - switch.vw_wvwzzzauzgw806000_charge
-    - switch.vw_wvwzzzauzgw806000_climat
-    - switch.vw_wvwzzzauzgw806000_melt
+    - switch.wvwzzzauzgw806000_charging
+    - switch.wvwzzzauzgw806000_climatisation
+    - switch.wvwzzzauzgw806000_window_heater
+    - lock.wvwzzzauzgw806000_doors_locked
+    - lock.wvwzzzauzgw806000_trunk_locked
   
 volkswagen_sensors:
     name: Volkswagen Information
     control: hidden
     entities:
-    - sensor.vw_wvwzzzauzgw806000_battery
-    - sensor.vw_wvwzzzauzgw806000_charge_max_ampere
-    - sensor.vw_wvwzzzauzgw806000_charging_time_left
-    - sensor.vw_wvwzzzauzgw806000_climat_target_temperature
-    - sensor.vw_wvwzzzauzgw806000_distance
-    - sensor.vw_wvwzzzauzgw806000_electric_range_left
-    - sensor.vw_wvwzzzauzgw806000_last_connected
-    - sensor.vw_wvwzzzauzgw806000_next_service_inspection
-    - binary_sensor.vw_wvwzzzauzgw806000_door_locked
-    - binary_sensor.vw_wvwzzzauzgw806000_parking_lights
-    - binary_sensor.vw_wvwzzzauzgw806000_external_power_connected
+    - sensor.wvwzzzauzgw806000_battery_level
+    - sensor.wvwzzzauzgw806000_fuel_level
+    - sensor.wvwzzzauzgw806000_charging_time_left
+    - sensor.wvwzzzauzgw806000_odometer
+    - sensor.wvwzzzauzgw806000_electric_range
+    - sensor.wvwzzzauzgw806000_combustion_range
+    - sensor.wvwzzzauzgw806000_combined_range
+    - sensor.wvwzzzauzgw806000_last_connected
+    - sensor.wvwzzzauzgw806000_service_inspection
+    - sensor.wvwzzzauzgw806000_climatisation_target_temperature
+    - binary_sensor.wvwzzzauzgw806000_parking_light
+    - binary_sensor.wvwzzzauzgw806000_external_power
+    - binary_sensor.wvwzzzauzgw806000_climatisation_without_external_power
         
 volkswagen_location:
     name: Volkswagen Location
     control: hidden
     entities:
-    - device_tracker.vw_wvwzzzauzgw806000
+    - device_tracker.wvwzzzauzgw806000

@@ -293,57 +293,72 @@ sensor.fibaro_sensor_temperature:
   hidden: true
 
 ################################################################
-## Fibaro eye sensor
+## Volkswagen GTE
 ################################################################
-switch.vw_wvwzzzauzgw806000_charge:
-    friendly_name: VW Car Charging
-switch.vw_wvwzzzauzgw806000_climat:
-    friendly_name: VW Car Climatisation
-switch.vw_wvwzzzauzgw806000_melt:
-    friendly_name: VW Car Window Heating
-device_tracker.vw_carid:
-    friendly_name: VW Car Location
-sensor.vw_wvwzzzauzgw806000_battery:
-    friendly_name: VW Car Battery
-sensor.vw_wvwzzzauzgw806000_charge_max_ampere:
-    friendly_name: VW Car Max Ampere
-sensor.vw_wvwzzzauzgw806000_charging_time_left:
-    friendly_name: VW Car Charging time left
-sensor.vw_wvwzzzauzgw806000_climat_target_temperature:
-    friendly_name: VW Car Climatisation Target Temperature
-sensor.vw_wvwzzzauzgw806000_distance:
-    friendly_name: VW Car Odometer
-sensor.vw_wvwzzzauzgw806000_electric_range_left:
-    friendly_name: VW Car Electric Range Left
-sensor.vw_wvwzzzauzgw806000_last_connected:
-    friendly_name: VW Car Last Connected
-sensor.vw_wvwzzzauzgw806000_next_service_inspection:
-    friendly_name: VW Car Next Service
-binary_sensor.vw_wvwzzzauzgw806000_door_locked:
-    friendly_name: VW Car Doors
-binary_sensor.vw_wvwzzzauzgw806000_parking_lights:
+binary_sensor.wvwzzzauzgw806000_parking_light:
     friendly_name: VW Car Parking Lights
-binary_sensor.vw_wvwzzzauzgw806000_external_power_connected:
+    show_last_changed: true
+binary_sensor.wvwzzzauzgw806000_external_power:
     friendly_name: VW Car External Power Connected
-
-################################################################
-## Zwave panel
-################################################################
-zwave.aeotec_zw090_zstick_gen5_eu:
-  hidden: true
-zwave.badkamer:
-  hidden: true
-zwave.drumhok:
-  hidden: true
-zwave.hal:
-  hidden: true
-zwave.keuken_1:
-  hidden: true
-zwave.keuken_2:
-  hidden: true
-zwave.slaapkamer:
-  hidden: true
-zwave.voordeur:
-  hidden: true
-zwave.fibaro_sensor:
-  hidden: true
+    show_last_changed: true
+binary_sensor.wvwzzzauzgw806000_climatisation_without_external_power:
+    friendly_name: VW Car Climatisation Without External Power
+    show_last_changed: true
+device_tracker.wvwzzzauzgw806000:
+    friendly_name: VW Car Location
+    show_last_changed: true
+lock.wvwzzzauzgw806000_doors_locked:
+    friendly_name: VW Car Locked
+    assumed_state: false
+    hide_control: true
+    show_last_changed: true
+lock.wvwzzzauzgw806000_trunk_locked:
+    friendly_name: VW Trunk Locked
+    assumed_state: false
+    hide_control: true
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_battery_level:
+    friendly_name: VW Car Battery Level
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_fuel_level:
+    friendly_name: VW Car Fuel Level
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_charge_max_ampere:
+    friendly_name: VW Charge max ampere
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_charging_time_left:
+    friendly_name: VW Car Charging time left
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_odometer:
+    friendly_name: VW Car Odometer
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_electric_range:
+    friendly_name: VW Car Electric Range Left
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_combustion_range:
+    friendly_name: VW Car Combustion Range Left
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_combined_range:
+    friendly_name: VW Car Combined Range Left
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_last_connected:
+    friendly_name: VW Car Last Connected
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_service_inspection:
+    friendly_name: VW Car Next Service
+    show_last_changed: true
+sensor.wvwzzzauzgw806000_climatisation_target_temperature:
+    friendly_name: VW Car Climatisation Target Temperature
+    show_last_changed: true
+switch.wvwzzzauzgw806000_charging:
+    friendly_name: VW Car Charging
+    assumed_state: false
+    show_last_changed: true
+switch.wvwzzzauzgw806000_climatisation:
+    friendly_name: VW Car Climatisation
+    assumed_state: false
+    show_last_changed: true
+switch.wvwzzzauzgw806000_window_heater:
+    friendly_name: VW Car Window Heating
+    assumed_state: false
+    show_last_changed: true

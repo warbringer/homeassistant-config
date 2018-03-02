@@ -51,7 +51,6 @@ updater:
 # Discover some devices automatically
 discovery:
   ignore:
-    - samsung_tv
     - plex_mediaserver
     - google_cast
 
