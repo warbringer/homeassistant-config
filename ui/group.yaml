@@ -4,8 +4,8 @@ default_view:
   entities:
   - device_tracker.lex_iphone
   - sensor.time
-  - sensor.yr_temperature
-  - sensor.yr_symbol
+  - sensor.dark_sky_temperature
+  - sensor.dark_sky_summary
   - alarm_control_panel.ha_alarm
   - group.living_room
   - group.blinds
